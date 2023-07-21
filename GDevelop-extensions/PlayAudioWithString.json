@@ -1,0 +1,256 @@
+{
+  "author": "",
+  "category": "General",
+  "extensionNamespace": "",
+  "fullName": "Play an audio file using a text string",
+  "helpPath": "https://github.com/QuetzalcoutlDev/GDevelop-extensions",
+  "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ibWRpLXZvbHVtZS1oaWdoIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE0LDMuMjNWNS4yOUMxNi44OSw2LjE1IDE5LDguODMgMTksMTJDMTksMTUuMTcgMTYuODksMTcuODQgMTQsMTguN1YyMC43N0MxOCwxOS44NiAyMSwxNi4yOCAyMSwxMkMyMSw3LjcyIDE4LDQuMTQgMTQsMy4yM00xNi41LDEyQzE2LjUsMTAuMjMgMTUuNSw4LjcxIDE0LDcuOTdWMTZDMTUuNSwxNS4yOSAxNi41LDEzLjc2IDE2LjUsMTJNMyw5VjE1SDdMMTIsMjBWNEw3LDlIM1oiIC8+PC9zdmc+",
+  "name": "PlayAudioWithString",
+  "previewIconUrl": "https://asset-resources.gdevelop.io/public-resources/Icons/7447548d05f2c067f0403c5eb2fcf1c36756dc7e9540a418e7f14040fa20ac6f_volume-high.svg",
+  "shortDescription": "Play an audio file using a text string",
+  "version": "1.0",
+  "description": [
+    "English:",
+    "",
+    "Play an audio file using a text string",
+    "",
+    "Can:",
+    "1. Play a music or a sound",
+    "2. Play a music or a sound in a channel",
+    "",
+    "Remember that what you will do is play an audio file using a text string writing its path.",
+    "",
+    "Example: \"assets/sounds/yoursound.ogg\" taking into account that your sound is inside the game files",
+    "",
+    "This extension allows you to play an audio file using a text string, this can be very helpful to avoid having to use too many events to play sounds, we just simplify it by concatenating variables.",
+    "",
+    "NOTE: For now you must preload the audio using the \"preload\" event in \"Sounds and music\" in order for the file you request to be listed in the game resources",
+    "",
+    "Spanish:",
+    "",
+    "Reproduce un archivo de audio usando una cadena de texto",
+    "",
+    "Puedes:",
+    "1. Reproduce una música o un sonido ",
+    "2. Reproduce una música o un sonido en un canal",
+    "",
+    "Recuerda que lo que haras es reproducir un archivo de audio usando una cadena de texto escribiendo su ruta.",
+    "",
+    "Ejemplo: \"assets/sounds/yoursound.ogg\" teniendo en cuenta que tu sonido esta dentro de los archivos del juego",
+    "",
+    "Está extensión permite reproducir un archivo de audio usando una cadena de texto, esto puede ser de gran ayuda para no tener que usar demasiados eventos para reproducir sonidos, simplemente lo simplificamos concadenando variables.",
+    "",
+    "NOTA: Por ahora se debe precargar el audio usando el evento \"precargar\" en \"Sonidos y música\" para que el archivo que solicitas se enliste en los recursos del juego"
+  ],
+  "tags": [
+    "audio",
+    "string",
+    "text",
+    "load",
+    "open",
+    "text"
+  ],
+  "authorIds": [
+    "bLei6mp8FMXlGD75f0bd33VOBoL2"
+  ],
+  "dependencies": [],
+  "eventsFunctions": [
+    {
+      "description": "Play a music with text string",
+      "fullName": "Play a music",
+      "functionType": "Action",
+      "name": "PlayMusicString",
+      "sentence": "Play music _PARAM1_, Loop _PARAM2_, Volume _PARAM3_, pitch _PARAM4_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "runtimeScene.getGame().getSoundManager().playMusic(",
+            "    eventsFunctionContext.getArgument(\"Audio\"), ",
+            "    eventsFunctionContext.getArgument(\"Loop\"),",
+            "    eventsFunctionContext.getArgument(\"Volume\"),",
+            "    eventsFunctionContext.getArgument(\"Pitch\"));"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "Write the audio to play",
+          "name": "Audio",
+          "type": "string"
+        },
+        {
+          "description": "Loop?",
+          "name": "Loop",
+          "type": "yesorno"
+        },
+        {
+          "description": "Volume (From 0 to 100)",
+          "name": "Volume",
+          "type": "expression"
+        },
+        {
+          "description": "Pitch (Number)",
+          "name": "Pitch",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Play a music with text string in a channel",
+      "fullName": "Play a music in a channel",
+      "functionType": "Action",
+      "name": "PlayMusicStringOnChannel",
+      "sentence": "Play music _PARAM1_, Loop _PARAM2_, Volume _PARAM3_, pitch _PARAM4_ in channel _PARAM5_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "runtimeScene.getGame().getSoundManager().playMusicOnChannel(",
+            "    eventsFunctionContext.getArgument(\"Audio\"),",
+            "    eventsFunctionContext.getArgument(\"Channel\"),",
+            "    eventsFunctionContext.getArgument(\"Loop\"),",
+            "    eventsFunctionContext.getArgument(\"Volume\"),",
+            "    eventsFunctionContext.getArgument(\"Pitch\")",
+            "    );",
+            "    "
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "Write the audio to play",
+          "name": "Audio",
+          "type": "string"
+        },
+        {
+          "description": "Loop?",
+          "name": "Loop",
+          "type": "yesorno"
+        },
+        {
+          "description": "Volume (From 0 to 100)",
+          "name": "Volume",
+          "type": "expression"
+        },
+        {
+          "description": "Pitch (Number)",
+          "name": "Pitch",
+          "type": "expression"
+        },
+        {
+          "description": "Channel to play on (Number)",
+          "name": "Channel",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Play a sound with text string",
+      "fullName": "Play a sound",
+      "functionType": "Action",
+      "name": "PlaySoundString",
+      "sentence": "Play Sound _PARAM1_, Loop _PARAM2_, Volume _PARAM3_, pitch _PARAM4_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "runtimeScene.getGame().getSoundManager().playSound(",
+            "    eventsFunctionContext.getArgument(\"Audio\"), ",
+            "    eventsFunctionContext.getArgument(\"Loop\"),",
+            "    eventsFunctionContext.getArgument(\"Volume\"),",
+            "    eventsFunctionContext.getArgument(\"Pitch\"));)"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "Write the audio to play",
+          "name": "Audio",
+          "type": "string"
+        },
+        {
+          "description": "Loop?",
+          "name": "Loop",
+          "type": "yesorno"
+        },
+        {
+          "description": "Volume (From 0 to 100)",
+          "name": "Volume",
+          "type": "expression"
+        },
+        {
+          "description": "Pitch (Number)",
+          "name": "Pitch",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Play a sound with text string in a channel",
+      "fullName": "Play a sound on channel",
+      "functionType": "Action",
+      "name": "PlaySoundStringOnChannel",
+      "sentence": "Play Sound _PARAM1_, Loop _PARAM2_, Volume _PARAM3_, pitch _PARAM4_  in channel _PARAM5_",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "runtimeScene.getGame().getSoundManager().playSoundOnChannel(",
+            "    eventsFunctionContext.getArgument(\"Audio\"),",
+            "    eventsFunctionContext.getArgument(\"Channel\"),",
+            "    eventsFunctionContext.getArgument(\"Loop\"),",
+            "    eventsFunctionContext.getArgument(\"Volume\"),",
+            "    eventsFunctionContext.getArgument(\"Pitch\")",
+            "    );"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "Write the audio to play",
+          "name": "Audio",
+          "type": "string"
+        },
+        {
+          "description": "Loop?",
+          "name": "Loop",
+          "type": "yesorno"
+        },
+        {
+          "description": "Volume (From 0 to 100)",
+          "name": "Volume",
+          "type": "expression"
+        },
+        {
+          "description": "Pitch (Number)",
+          "name": "Pitch",
+          "type": "expression"
+        },
+        {
+          "description": "Channel to play on (Number)",
+          "name": "Channel",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    }
+  ],
+  "eventsBasedBehaviors": [],
+  "eventsBasedObjects": []
+}
